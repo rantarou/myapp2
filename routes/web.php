@@ -12,10 +12,10 @@
 */
 
 Route::view('/','home');
-Route::view('about', 'about');
+Route::view('about', 'about')->name('about');
 
-Route::get('contact', 'ContactFormController@create');
-Route::post('contact', 'ContactFormController@store');
+Route::get('contact', 'ContactFormController@create')->name('contact.create');
+Route::post('contact', 'ContactFormController@store')->name('contact.store');
 
 // Route::get('customers', 'CustomersController@index');
 // Route::get('customers/create', 'CustomersController@create');
@@ -26,3 +26,7 @@ Route::post('contact', 'ContactFormController@store');
 // Route::delete('customers/{customer}', 'CustomersController@destroy');
 
 Route::resource('customers', 'CustomersController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

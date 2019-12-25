@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title', 'Contact Us')
 
@@ -6,7 +6,7 @@
 <h1>Contact Us</h1>
 
 @if( ! session()->has('message'))
-    <form action="/contact" method="post" class="pb-5">
+    <form action="{{ route('contact.store') }}" method="post" class="pb-5">
         <div class="form-group">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}">
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Send Message</button>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-envelope"></i> Send Message</button>
         </div>
         @csrf
     </form>

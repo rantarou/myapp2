@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title', 'Detail For ' . $customer->name)
 
@@ -6,11 +6,11 @@
 <div class="row">
     <div class="col-12">
         <h1>Detail For  {{ $customer->name }}</h1>
-        <p><a href="/customers/{{$customer->id}}/edit">Edit</a></p>
-        <form action="/customers/{{$customer->id}}" method="post">
+        <p><a href="{{ route('customers.edit',['customer' => $customer]) }}">Edit</a></p>
+        <form action="{{ route('customers.destroy', ['customer' => $customer]) }}" method="post">
             @method('DELETE')
             @csrf
-            <button class="btn btn-danger" type="submit">Delete</button>
+            <button class="btn btn-danger" type="submit"><i class="fa fa-times"></i> Delete</button>
         </form>
     </div>
 </div>
