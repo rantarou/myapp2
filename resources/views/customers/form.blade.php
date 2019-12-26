@@ -33,4 +33,10 @@
     </select>
     <div class="label label-danger">{{ $errors->first('company_id') }}</div>
 </div>
+
+<div class="form-group d-flex flex-column">
+    <label for="image">Profile Image</label>
+    <input type="file" name="image" class="py-2">
+    <div class="label label-danger">{{ $errors->first('image') }}</div>
+</div>
 @csrf
