@@ -29,10 +29,11 @@ use Illuminate\Support\Facades\Hash;
 
 $factory->define(User::class, function () {
     return [
-        'name' => 'admin',
+        'name' => 'Super Administrator',
+        'username' => 'superadmin',
         'email' => 'admin@email.com',
         'email_verified_at' => now(),
-        'password' => Hash::make('password'),
+        'password' => Hash::make('superadmin'),
         'remember_token' => Str::random(10),
     ];
 });
